@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/desmondmorris/locu-php.png?branch=master)](https://travis-ci.org/desmondmorris/locu-php)
+
 locu-php
 =========
 

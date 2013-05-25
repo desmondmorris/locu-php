@@ -20,7 +20,7 @@ class LocuTest extends PHPUnit_Framework_TestCase
         $stub->expects($this->any())
             ->method('call')
             ->will($this->returnValue($response));
-        $this->Locu = new Locu($stub);
+        $this->Locu = new Locu(self::$config, $stub);
     }
 
     /**
@@ -28,7 +28,7 @@ class LocuTest extends PHPUnit_Framework_TestCase
      */
     public function testMissingConfigThrowsException()
     {
-        $MobileCommons = new Locu();
+        $Locu = new Locu();
     }
 
     /**
@@ -36,9 +36,8 @@ class LocuTest extends PHPUnit_Framework_TestCase
      */
     public function testMissingApiKeyThrowsException()
     {
-        $config = self::$config;
-        unset($config['api_key']);
-        $MobileCommons = new Locu(null, $config);
+        $config = array();
+        $Locu = new Locu($config);
     }
 
     private function _testCallResponse($method, $params = array())
